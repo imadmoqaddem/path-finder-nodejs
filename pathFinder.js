@@ -126,13 +126,18 @@ class PathFinder {
     getMinimumMoves = (position, target) => {
         // console.log(this.getCoordinates(position))
         // console.log(this.getAllowedMoves(position))
+
         const init_coords = this.getCoordinates(position);
         const target_coords = this.getCoordinates(target);
+
         // console.log(init_coords)
         // console.log(target_coords)
         
+        // Recursive version (prototyping / initial problem solving)
+        // return this.exploreRecursive([init_coords], target_coords);
+
+        // Iterative version (optimized)
         return this.exploreIterative(init_coords, target_coords);
-        return this.exploreRecursive([init_coords], target_coords);
     }
 }
 
