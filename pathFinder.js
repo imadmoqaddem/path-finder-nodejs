@@ -98,7 +98,7 @@ class PathFinder {
         // console.log(target_coords);
 
         // array to keep visited cells
-        const square_map = Array.from({ length: 8 }, () => Array(8).fill(false));
+        const square_map = Array.from({ length: this.square_length }, () => Array(this.square_length).fill(false));
         square_map[init_x][init_y] = true;
 
         const moves = [[init_x, init_y, 0]];
@@ -110,7 +110,7 @@ class PathFinder {
                 const new_x = cell_x + delta_x;
                 const new_y = cell_y + delta_y;
 
-                if (new_x >= 0 && new_x < 8 && new_y >= 0 && new_y < 8 && !square_map[new_y][new_x]) {
+                if (new_x >= 0 && new_x < this.square_length && new_y >= 0 && new_y < this.square_length && !square_map[new_y][new_x]) {
                     if (new_x === target_x && new_y === target_y) return nb_moves + 1;
 
                     square_map[init_x][init_y] = true;
